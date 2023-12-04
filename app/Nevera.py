@@ -6,8 +6,8 @@ class Nevera:
     def __init__(self):
         self.alimentos = {}
         
-    def add_alimento(self, alimento):
-        self.alimentos.append(alimento)
+    def add_alimento(self, alimento, cantidad=1):
+         self.alimentos[alimento] = self.alimentos.get(alimento, 0) + cantidad
     
     def get_alimentos(self):
         return self.alimentos
