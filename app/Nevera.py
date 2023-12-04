@@ -13,6 +13,7 @@ class Nevera:
         return self.alimentos
     
     def get_lista_de_alimentos_no_disponibles(self, receta):
+        #print (receta)
         faltantes = []
         for ingrediente in receta.ingredientes:
             cantidad_en_nevera = self.alimentos.get(ingrediente, 0)

@@ -7,3 +7,4 @@ class Receta:
         self.nombre = nombre
         self.ingredientes = ingredientes
         self.preparacion = preparacion
+        print("Creando receta")
