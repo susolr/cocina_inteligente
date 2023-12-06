@@ -5,10 +5,19 @@
 class Vista:
     def mostrar_menu_principal(self):
         print("\n-----------------------------")
-        print("Menú:")
+        print("Menú principal:")
         print("1. Ver recetas disponibles")
         print("2. Ver alimentos en la nevera")
         print("3. Ver todas las recetas")
+        print("4. Inspeccionar receta")
+        print("5. Salir")
+        
+    def mostrar_menu_inspeccionar_receta(self):
+        print("\n***************************")
+        print("Menú de Inspección de Receta:")
+        print("1. Ver método de preparación")
+        print("2. Ver alimentos necesarios")
+        print("3. Ver alimentos que faltan")
         print("4. Salir")
         
     def mostrar_recetas(self, recetas):
@@ -16,8 +25,25 @@ class Vista:
             print("\nNo hay recetas disponibles.")
         else:
             print("\nRecetas disponibles:")
-            for receta in recetas:
-                print(f"- {receta.nombre}")
+            for i, receta in enumerate(recetas, start=1):
+                print(f"{i}. {receta.nombre}")
+    
+    def mostrar_alimentos_necesarios(self, receta):
+        print(f"\nAlimentos necesarios para '{receta.nombre}':")
+        for alimento in receta.ingredientes:
+            print(f"- {alimento.nombre}")
+            
+    def mostrar_alimentos_que_faltan(self, alimentos_que_faltan):
+        if not alimentos_que_faltan:
+            print("\nNo faltan alimentos.")
+        else:
+            print("\nAlimentos que faltan:")
+            for alimento in alimentos_que_faltan:
+                print(f"- {alimento.nombre}")
+                
+    def mostrar_metodo_preparacion(self, receta):
+        print(f"\nMétodo de preparación de '{receta.nombre}':")
+        print(receta.preparacion)
 
     def mostrar_alimentos_en_nevera(self, alimentos_en_nevera):
         if not alimentos_en_nevera:
@@ -26,11 +52,3 @@ class Vista:
             print("\nAlimentos en la nevera:")
             for alimento, cantidad in alimentos_en_nevera.items():
                 print(f"- {alimento.nombre}: {cantidad}")
-
-    def mostrar_recetas(self, recetas):
-        if not recetas:
-            print("El recetario está vacío.")
-        else:
-            print("Recetas en el recetario:")
-            for receta in recetas:
-                print(f"- {receta.nombre}")
