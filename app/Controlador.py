@@ -14,19 +14,24 @@ class Controlador:
     def mostrar_alimentos_en_nevera(self):
         alimentos_en_nevera = self.modelo.nevera.get_alimentos()
         self.vista.mostrar_alimentos_en_nevera(alimentos_en_nevera)
-
+    
+    def mostrar_recetas_en_recetario(self):
+        self.vista.mostrar_recetas(self.modelo.recetario.get_recetas())
+    
     def ejecutar(self):
         print("Bienvenido a la Aplicación de Recetas")
         while True:
             self.vista.mostrar_menu_principal()
 
-            opcion = input("Seleccione una opción (1/2/3): ")
+            opcion = input("Seleccione una opción (1/2/3/4): ")
 
             if opcion == "1":
                 self.mostrar_recetas_disponibles()
             elif opcion == "2":
                 self.mostrar_alimentos_en_nevera()
             elif opcion == "3":
+                self.mostrar_recetas_en_recetario()
+            elif opcion == "4":
                 print("¡Hasta luego!")
                 break
             else:

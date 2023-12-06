@@ -15,6 +15,9 @@ class Recetario:
     def add_receta(self, receta):
         if receta not in self.recetas:
             self.recetas.append(receta)
+    
+    def get_recetas(self):
+        return self.recetas
 
     def buscar_recetas_disponibles(self):
         recetas_disponibles = []
@@ -24,11 +27,3 @@ class Recetario:
             if not faltantes:
                 recetas_disponibles.append(receta)
         return recetas_disponibles
-
-    def mostrar_recetas(self):
-        if not self.recetas:
-            print("El recetario está vacío.")
-        else:
-            print("Recetas en el recetario:")
-            for receta in self.recetas:
-                print(f"- {receta.nombre}")
