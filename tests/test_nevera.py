@@ -1,4 +1,4 @@
-# archivo: test_alimentos.py
+# archivo: test_nevera.py
 # autor: Jesús López Rodríguez
 # descripción: Este archivo contiene los test unitarios de la clase Nevera
 

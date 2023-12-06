@@ -1,6 +1,6 @@
-# archivo: test_alimentos.py
+# archivo: test_recetario.py
 # autor: Jesús López Rodríguez
-# descripción: Este archivo contiene los test unitarios de la clase Nevera
+# descripción: Este archivo contiene los test unitarios de la clase Recetario
 
 import unittest
 from app.Alimento import Alimento
