@@ -12,6 +12,11 @@ class TestNevera(unittest.TestCase):
         self.nevera = Nevera()
         self.manzana = Alimento("Manzana")
         self.huevo = Alimento("Huevo")
+        
+    def test_unica_instancia(self):
+        nevera1 = Nevera()
+        nevera2 = Nevera()
+        self.assertIs(nevera1, nevera2)
 
     def test_add_alimento(self):
         self.nevera.add_alimento(self.manzana)
@@ -20,7 +25,6 @@ class TestNevera(unittest.TestCase):
     def test_get_lista_de_alimentos_no_disponibles(self):
         self.nevera.add_alimento(self.manzana)
         self.nevera.add_alimento(self.huevo)
-
         receta = Receta("Torta", [self.manzana, self.huevo], "Mezclar y hornear")
         faltantes = self.nevera.get_lista_de_alimentos_no_disponibles(receta)
         self.assertFalse(faltantes)

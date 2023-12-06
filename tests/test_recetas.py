@@ -14,3 +14,12 @@ class TestReceta(unittest.TestCase):
         self.assertEqual(receta.nombre, "Ensalada de Frutas")
         self.assertEqual(receta.ingredientes, [alimento])
         self.assertEqual(receta.preparacion, "Cortar y mezclar")
+        
+    def test_receta_sin_ingredientes(self):
+        with self.assertRaises(ValueError) as context:
+            receta = Receta("Receta Sin Ingredientes", [], "Instrucciones")
+
+        self.assertEqual(
+            str(context.exception),
+            "Una receta debe tener al menos un ingrediente."
+        )
