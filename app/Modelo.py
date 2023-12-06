@@ -11,7 +11,9 @@ class Modelo:
     def __init__(self):
         self.nevera = Nevera()
         self.recetario = Recetario()
-        
+        self.inicializar_informacion_ejemplo()
+    
+    def inicializar_informacion_ejemplo(self):
         manzana = Alimento("Manzana")
         salmon = Alimento("Salmon")
         langostino = Alimento("Langostino")
@@ -20,12 +22,8 @@ class Modelo:
         salmon_compota = Receta("Salmon con compota de manzana", [manzana,salmon], "Hacer el salmon al horno y triturar la manzana. Agregar en mitad de la coccion")
         langostinos_plancha = Receta("Langostinos plancha", [langostino], "Colocar sobre aceite caliente")
 
-        # Crear recetario
-        self.recetario = Recetario()
         self.recetario.add_receta(salmon_compota)
         self.recetario.add_receta(langostinos_plancha)
 
-        # Crear nevera
-        self.nevera = Nevera()
         self.nevera.add_alimento(manzana, cantidad=2)
         self.nevera.add_alimento(langostino, cantidad=3)
